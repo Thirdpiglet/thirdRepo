@@ -1,7 +1,7 @@
 <template>
   <div class="container-full-bg kleurtje hoogte padding0 d-flex justify-content-center relatief">
     <img :key="reRenderKey" id="animation" class="img-fluid"/>
-    <div id="pookjeId" class="pookjeClass4 absoluut top570">  
+    <div id="pookjeId" class="pookjeClass4 absoluut top440">  
       <input @input="poken()" @mouseup="flapRuitenwisser()" type="range" id="range" min="1" max="9" step="1" v-model="sliderValue" />
     </div>  
   </div>
@@ -21,10 +21,10 @@ export default {
       loopjumper: 0,
       reRenderKey: 0,
       StartStop: null,
-      frameHeight: 300,
-      frames: 15,
-      frame: 0,
-      divtof: document.getElementById("animation"),
+      // frameHeight: 300,
+      // frames: 15,
+      // frame: 0,
+      // divtof: document.getElementById("animation"),
       klaar: false,
       intervalId: 0,
       nogBezig: false,
@@ -49,16 +49,11 @@ export default {
     stop: function() {
       this.loopjumper = 1000;
     },
-    // dezeFunctieMoetWeg: async function() {
-    //   console.log('... maar hij heeft gewacht: ' + this.nogBezig);
-    // },
     flapRuitenwisser: async function() {
       if(this.nogBezig == false){
-        // let kanOokWeg = await this.dezeFunctieMoetWeg();
         var i;
         for (i = 0; i < 999; i++) {
           let kanWeg = await this.flapEENkeer();
-          // console.log('kanWeg: ' + kanWeg);
           i = i + this.loopjumper;
         }
         this.loopjumper = 0;
@@ -71,7 +66,7 @@ export default {
       var frames = 22;
       var frame = 0;
       var divtof = document.getElementById("animation");
-        this.intervalId = setInterval(() => {
+      this.intervalId = setInterval(() => {
         this.nogBezig = true;
         var frameOffset = (++frame % frames) * -frameHeight;
         divtof.style.backgroundPosition = "0px " + frameOffset + "px";
@@ -111,14 +106,18 @@ export default {
 .pookjeClass4{
   background-image: url("https://vuestoragestatictof.blob.core.windows.net/pics/pook4.png");
   background-position: center;
-  background-size: 50%;
+  background-size: 45%;
   background-repeat: no-repeat;
 }
-.top570{
-  top: 570px;
+.top440{
+  top: 440px;
 }
 .kleurtje{
   background-color:#37372e;
+}
+.hoogte{
+  min-height: 478px;
+  max-height: 100px;
 }
 .absoluut{
   position: absolute;

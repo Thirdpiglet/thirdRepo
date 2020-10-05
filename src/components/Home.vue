@@ -191,6 +191,9 @@ export default {
 .margin0{
   margin: 0px;
 }
+.relatief{
+  position: relative;
+}
 .relatief0{
   position: relative;
 }
