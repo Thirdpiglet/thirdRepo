@@ -1,76 +1,59 @@
 <template>
 <div>
-  <!-- <div class="container-fluid my-4 kleurtje hoogte padding0 d-flex justify-content-center relatief"> -->
+  <div>
+    <vue-load-image>
+      <!-- <img slot="image" src="https://vuestoragestatictof.blob.core.windows.net/pics/Ruitenwissers05.gif"/>
+      <img slot="preloader" src="https://flevix.com/wp-content/uploads/2020/01/Preloader.gif"/>
+      <div slot="error">error message</div> -->
+    </vue-load-image>
+  </div>
   <div class="container-full-bg kleurtje hoogte padding0 d-flex justify-content-center relatief">
     <div class="relatief">
-      <div id="ruitwId1" class="ruitwClass ruitwClass1">
-        <div class="onzichtbaar">
-        Deze text is blijkbaar nodig. Zorg maar dat hij wegvalt. De foto-breedte hangt ervanaf. Nou.. nog maar iets erbij dan.
-        meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer..
+      <div id="ruitwId3" class="relatief">
+        <div id="testing">
         </div>
-      </div>
-
-      <div id="ruitwId2" class="ruitwClass ruitwClass2 absoluut topIets">
-        <div class="onzichtbaar">
-        Deze text is blijkbaar nodig. Zorg maar dat hij wegvalt. De foto-breedte hangt ervanaf. Nou.. nog maar iets erbij dan.
-        meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer..
+        <!-- <img id="myImg" class="img-fluid" src="https://vuestoragestatictof.blob.core.windows.net/pics/Ruitenwissers05.gif"> -->
+        <!-- <img id="myImg" class="img-fluid" src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2020/05/Image-Files-Blog-Vector.jpg"> -->
+        <!-- <vue-load-image>
+          <img :key="reRenderKey" id="myImg" class="img-fluid" slot="image" src="https://vuestoragestatictof.blob.core.windows.net/pics/Ruitenwissers05.gif"/>
+          <img slot="preloader" src="https://flevix.com/wp-content/uploads/2020/01/Preloader.gif"/>
+          <div slot="error">error message</div>
+        </vue-load-image> -->
+        <div>
+          <img :key="reRenderKey" id="myImg" class="img-fluid" slot="image" src="https://vuestoragestatictof.blob.core.windows.net/pics/Ruitenwissers05.gif"/>
         </div>
-      </div>
-
-      <div id="ruitwId3" class="ruitwClass ruitwClass3 absoluut topIets">
-        <div class="onzichtbaar">
-        Deze text is blijkbaar nodig. Zorg maar dat hij wegvalt. De foto-breedte hangt ervanaf. Nou.. nog maar iets erbij dan.
-        meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer..
-        </div>
-      </div>
       
-      <div id="ruitwId4" class="ruitwClass ruitwClass4 absoluut topIets">
-        <div class="onzichtbaar">
-        Deze text is blijkbaar nodig. Zorg maar dat hij wegvalt. De foto-breedte hangt ervanaf. Nou.. nog maar iets erbij dan.
-        meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer..
-        </div>
       </div>
-
-      <div id="ruitwId5" class="ruitwClass ruitwClass5 absoluut topIets">
-        <div class="onzichtbaar">
-        Deze text is blijkbaar nodig. Zorg maar dat hij wegvalt. De foto-breedte hangt ervanaf. Nou.. nog maar iets erbij dan.
-        meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer..
-        </div>
-      </div>
-
-      <div id="ruitwId6" class="ruitwClass ruitwClass6 absoluut topIets">
-        <div class="onzichtbaar">
-        Deze text is blijkbaar nodig. Zorg maar dat hij wegvalt. De foto-breedte hangt ervanaf. Nou.. nog maar iets erbij dan.
-        meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer..
-        </div>
-      </div>
-      
-      <div id="ruitwId7" class="ruitwClass ruitwClass7 absoluut topIets">
-        <div class="onzichtbaar">
-        Deze text is blijkbaar nodig. Zorg maar dat hij wegvalt. De foto-breedte hangt ervanaf. Nou.. nog maar iets erbij dan.
-        meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer.. meer..
-        </div>
-      </div>
-
     </div>
     <div id="pookjeId" class="pookjeClass absoluut top570" :style="cssProps">
-      <input @input="poken()" type="range" id="range" min="1" max="6" step="1" v-model="sliderValue" />
+      <input @input="poken()" type="range" id="range" min="1" max="4" step="1" v-model="sliderValue" />
     </div>  
   </div>
 </div>
 </template>
 
 <script>
+import VueLoadImage from 'vue-load-image'
 export default {
   name: 'Home',
+  components: {
+    'vue-load-image': VueLoadImage
+  },
   data() {
     return {
       cssProps: {
-        backgroundImage: `url(${require('@/assets/pook5.png')})`
+        backgroundImage: `url(${require('@/assets/pook4.png')})`
       },
       sliderValue: 3,
       forceRender: 0,
+      reRenderKey: 0,
+      images: [],
     };
+  },
+  created: async function() {
+    var element = document.getElementById('testing');
+      element.style.cssText = 'display:none;';
+    await this.gifsLaden();
   },
   methods: {
     isMobile() {
@@ -80,56 +63,47 @@ export default {
         return false
       }
     },
+    gifsLaden: async function() {
+      // setTimeout(function(){
+      alert('Begin. ..');
+      this.images[0] = new Image();
+			this.images[0].src = "https://vuestoragestatictof.blob.core.windows.net/pics/RuitenwissersSlow05.gif";
+			this.images[1] = new Image();
+			this.images[1].src = "https://vuestoragestatictof.blob.core.windows.net/pics/Ruitenwissers05.gif";
+			this.images[2] = new Image();
+			this.images[2].src = "https://vuestoragestatictof.blob.core.windows.net/pics/RuitenwissersFast1_05.gif";
+			this.images[3] = new Image();
+      this.images[3].src = "https://vuestoragestatictof.blob.core.windows.net/pics/RuitenwissersFast2_05.gif";
+      //  }, 6000);
+      alert('klaar!');
+      this.sliderValue = 4;
+      this.poken();
+    },
     poken() {
       if (this.sliderValue == 1) {
-        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestaticjolanda.blob.core.windows.net/gifs/pook1.png')";
-        document.getElementById('ruitwId1').style.visibility = "visible";
-        document.getElementById('ruitwId2').style.visibility = "hidden";
-        document.getElementById('ruitwId3').style.visibility = "hidden";
-        document.getElementById('ruitwId4').style.visibility = "hidden";
-        document.getElementById('ruitwId5').style.visibility = "hidden";
-        document.getElementById('ruitwId6').style.visibility = "hidden";
+        // alert('1');
+        // this.reRenderKey = this.reRenderKey +1;
+        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/pook2.png')";
+        document.getElementById("myImg").src = (this.images[0].src);
+        // this.reRenderKey = this.reRenderKey +1;
       } else if  (this.sliderValue == 2) {
-        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestaticjolanda.blob.core.windows.net/gifs/pook2.png')";
-        document.getElementById('ruitwId1').style.visibility = "hidden";
-        document.getElementById('ruitwId2').style.visibility = "visible";
-        document.getElementById('ruitwId3').style.visibility = "hidden";
-        document.getElementById('ruitwId4').style.visibility = "hidden";
-        document.getElementById('ruitwId5').style.visibility = "hidden";
-        document.getElementById('ruitwId6').style.visibility = "hidden";
+        // alert('2');
+        // this.reRenderKey = this.reRenderKey +1;
+        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/pook4.png')";
+        document.getElementById("myImg").src = (this.images[1].src);
+        // this.reRenderKey = this.reRenderKey +1;
       } else if  (this.sliderValue == 3) {
-        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestaticjolanda.blob.core.windows.net/gifs/pook4.png')";
-        document.getElementById('ruitwId1').style.visibility = "hidden";
-        document.getElementById('ruitwId2').style.visibility = "hidden";
-        document.getElementById('ruitwId3').style.visibility = "visible";
-        document.getElementById('ruitwId4').style.visibility = "hidden";
-        document.getElementById('ruitwId5').style.visibility = "hidden";
-        document.getElementById('ruitwId6').style.visibility = "hidden";
-        document.getElementById('ruitwId6').style.visibility = "hidden";
-      } else if  (this.sliderValue == 4) {
-        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestaticjolanda.blob.core.windows.net/gifs/pook5.png')";
-        document.getElementById('ruitwId1').style.visibility = "hidden";
-        document.getElementById('ruitwId2').style.visibility = "hidden";
-        document.getElementById('ruitwId3').style.visibility = "hidden";
-        document.getElementById('ruitwId4').style.visibility = "visible";
-        document.getElementById('ruitwId5').style.visibility = "hidden";
-        document.getElementById('ruitwId6').style.visibility = "hidden";
-      } else if  (this.sliderValue == 5) {
-        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestaticjolanda.blob.core.windows.net/gifs/pook7.png')";
-        document.getElementById('ruitwId1').style.visibility = "hidden";
-        document.getElementById('ruitwId2').style.visibility = "hidden";
-        document.getElementById('ruitwId3').style.visibility = "hidden";
-        document.getElementById('ruitwId4').style.visibility = "hidden";
-        document.getElementById('ruitwId5').style.visibility = "visible";
-        document.getElementById('ruitwId6').style.visibility = "hidden";
+        // alert('3');
+        // this.reRenderKey = this.reRenderKey +1;
+        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/pook5.png')";
+        document.getElementById("myImg").src = (this.images[2].src);
+        // this.reRenderKey = this.reRenderKey +1;
       } else {
-        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestaticjolanda.blob.core.windows.net/gifs/pook9.png')";
-        document.getElementById('ruitwId1').style.visibility = "hidden";
-        document.getElementById('ruitwId2').style.visibility = "hidden";
-        document.getElementById('ruitwId3').style.visibility = "hidden";
-        document.getElementById('ruitwId4').style.visibility = "hidden";
-        document.getElementById('ruitwId5').style.visibility = "hidden";
-        document.getElementById('ruitwId6').style.visibility = "visible";
+        // alert('4');
+        // this.reRenderKey = this.reRenderKey +1;
+        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/pook7.png')";
+        document.getElementById("myImg").src = (this.images[3].src);
+        // this.reRenderKey = this.reRenderKey +1; 
       }
     },
   }
@@ -137,6 +111,15 @@ export default {
 </script>
 
 <style>
+#animation {
+    background-image: url("../assets/film04.png");
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 533px;
+}
+#myImg{
+  max-height: 477px;
+}
 .jumbotron{
   background-size: cover;
   background-size: 100%;
@@ -150,47 +133,8 @@ export default {
   color:#37372e;
   opacity: 0;
 }
-.ruitwClass{
-  background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  min-height: 478px;
-  visibility: hidden;
-}
-.ruitwClass1{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersStil.png");
-  visibility: hidden;
-}
-.ruitwClass2{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersSlow05.gif");
-  visibility: hidden;
-}
-.ruitwClass3{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/Ruitenwissers05.gif");
-  visibility: visible;
-}
-.ruitwClass4{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersFast1_05.gif");
-  visibility: hidden;
-}
-.ruitwClass5{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersFast2_05.gif");
-  visibility: hidden;
-}
-.ruitwClass6{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersFast2_05.gif");
-  visibility: hidden;
-}
-.ruitwClass7{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersFast3_05.gif");
-  background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  min-height: 470px;
-  visibility: hidden;
-}
 .pookjeClass{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/pook4.png");
+  background-image: url("https://vuestoragestatictof.blob.core.windows.net/pics/pook4.png");
   /* background-color: green; */
   background-position: center;
   background-size: 50%;

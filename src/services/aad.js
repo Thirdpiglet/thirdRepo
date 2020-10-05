@@ -52,7 +52,13 @@ var getAccount = async () => {
     //       setError(error.message);
     //     }
     //   );
-    const tokenResponse = await myMSALObj.acquireTokenSilent(requestObj);
+
+
+    // GEEEEEEN TOKEN - for now. 
+    // const tokenResponse = await myMSALObj.acquireTokenSilent(requestObj);
+
+
+
     // console.log('!!!!!!!!!!!!!!tokenResponse!!!!!!!!!!!!!!!!!!:');
     // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
     // console.log(tokenResponse);
@@ -62,16 +68,24 @@ var getAccount = async () => {
 };
 
 
-var getToken = async () => {
-    var account = await myMSALObj.getAccount();
-    // console.log('!!!!!!!!!!!!!! Hij gaat nu AWAITen ......... !!!!!!!!!!!!!!!!!!:');
-    const tokenResponse = await myMSALObj.acquireTokenSilent(requestObj);
-    // console.log('!!!!!!!!!!!!!!tokenResponse!!!!!!!!!!!!!!!!!!:');
-    // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-    // console.log(tokenResponse);
-    // console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-    return tokenResponse;
-};
+// var getToken = async () => {
+//     var account = await myMSALObj.getAccount();
+
+//     DIT MOET UITGESTERD BLIJVEN:
+//     console.log('!!!!!!!!!!!!!! Hij gaat nu AWAITen ......... !!!!!!!!!!!!!!!!!!:');
+//     <<TOT HIER
+
+//     const tokenResponse = await myMSALObj.acquireTokenSilent(requestObj);
+
+//     DIT MOET UITGESTERD BLIJVEN:
+//     console.log('!!!!!!!!!!!!!!tokenResponse!!!!!!!!!!!!!!!!!!:');
+//     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+//     console.log(tokenResponse);
+//     console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+//     <<TOT HIER
+
+//     return tokenResponse;
+// };
 
 var logoff = () => {
     myMSALObj.logout();
@@ -80,6 +94,6 @@ var logoff = () => {
 export default {
     login,
     getAccount,
-    getToken,
+    // getToken,
     logoff
 };

@@ -36,6 +36,7 @@ export default {
     };
   },
   created() {
+    alert('Halloo!!!!!!');
   },
   methods: {
     isMobile() {
@@ -100,7 +101,7 @@ export default {
   padding: 5px;  
 }
 #animation {
-    background-image: url("../assets/film02.png");
+    background-image: url("../assets/film04.png");
 
 /* WERKT :-) !!!!: */
     /* background-image: var(--slide-2); */
@@ -121,45 +122,6 @@ export default {
 .onzichtbaar{
   color:#37372e;
   opacity: 0;
-}
-.ruitwClass{
-  background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  min-height: 478px;
-  visibility: visible;
-}
-.ruitwClass1{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersStil.png");
-  visibility: hidden;
-}
-.ruitwClass2{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersSlow05.gif");
-  visibility: hidden;
-}
-.ruitwClass3{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/Ruitenwissers05.gif");
-  visibility: hidden;
-}
-.ruitwClass4{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersFast1_05.gif");
-  visibility: visible;
-}
-.ruitwClass5{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersFast2_05.gif");
-  visibility: hidden;
-}
-.ruitwClass6{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersFast2_05.gif");
-  visibility: hidden;
-}
-.ruitwClass7{
-  background-image: url("https://vuestoragestaticjolanda.blob.core.windows.net/gifs/RuitenwissersFast3_05.gif");
-  background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  min-height: 470px;
-  visibility: hidden;
 }
 .pookjeClass1{
   background-image: url("../assets/pook1.png");
