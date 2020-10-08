@@ -111,12 +111,6 @@ export default {
 </script>
 
 <style>
-#animation {
-    background-image: url("../assets/film04.png");
-    background-repeat: no-repeat;
-    height: 300px;
-    width: 533px;
-}
 #myImg{
   max-height: 477px;
 }
@@ -301,7 +295,7 @@ z-index:-1;
 width: 20%;
 height: auto;
 }
-@media screen and (min-width: 601px) {
+/* @media screen and (min-width: 601px) {
   div.titletext {
     font-size: 46px;
     font-weight:700;
@@ -328,7 +322,7 @@ height: auto;
     line-height: 16px;
     text-align: center;
   }
-}
+} */
 .p {
    margin-top:5px;
    margin-bottom:5px
@@ -371,7 +365,28 @@ height: auto;
   /* margin-bottom: 0px;
   line-height: 1; */
 }
-@media screen and (min-width: 601px) {
+  #animation {
+    background-image: url("../assets/imgNotFound.png");
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 533px;
+    transform-origin:top;
+    /* Stomme truc om irritant randje we te krijgen >>> */
+    padding: 150px;
+    /* <<< Stomme truc om irritant randje we te krijgen */
+  }
+@media screen and (min-width: 1001px) {
+  #animation {
+    transform: scale(1.59,1.59);
+  }
+  .kleurtje{
+    background-color:#37372e;
+  }
+  .hoogte{
+    height: 478px;
+    min-height: 400px;
+    max-height: 478px;
+  }
   div.blogtitletext {
     font-size: 32px;
     font-weight:400;
@@ -385,8 +400,69 @@ height: auto;
     text-align: left;
   }
 }
-
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 701px) and (max-width: 1000px) {
+  .kleurtje{
+    background-color:#37372e;
+  }
+  #animation {
+    transform: scale(1.1,1.1);
+  }
+  .hoogte{
+    height: 331px;
+    min-height: 100px;
+    max-height: 331px;
+  }
+  div.blogtitletext {
+    font-size: 16px;
+    font-weight:400;
+    line-height: 32px;
+    text-align: center;
+  }
+    div.blogbodytext {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+  }
+}
+@media screen and (min-width: 401px) and (max-width: 700px) {
+  .kleurtje{
+    background-color:#37372e;
+  }
+  #animation {
+    transform: scale(0.7,0.7);
+  }
+  .hoogte{
+    height: 210px;
+    min-height: 100px;
+    max-height: 210px;
+  }
+  div.blogtitletext {
+    font-size: 16px;
+    font-weight:400;
+    line-height: 32px;
+    text-align: center;
+  }
+    div.blogbodytext {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+  }
+}
+@media screen and (max-width: 400px) {
+  .kleurtje{
+    background-color:green;
+  }
+  #animation {
+    transform: scale(0.3,0.3);
+    width: 400px;
+  }
+  .hoogte{
+    height: 111px;
+    min-height: 50px;
+    max-height: 111px;
+  }
   div.blogtitletext {
     font-size: 16px;
     font-weight:400;

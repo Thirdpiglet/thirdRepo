@@ -39,7 +39,6 @@ export default {
       nogBezig: false,
       vizierIDOffsetTop: 0,
       vizierIDOffsetLeft: 0,
-      telAfdrukken: 0,
     };
   },
   created() {
@@ -54,7 +53,7 @@ export default {
     },
     muurVallen: function() {
     // document.getElementById('containerId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/snowTransp02.gif'), url('https://vuestoragestatictof.blob.core.windows.net/pics/SneeuwLandschap02.jpg')";
-    document.getElementById('containerId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/snowTransp02.gif'), url('https://vuestoragestatictof.blob.core.windows.net/pics/SneeuwLandschap02.jpg')";
+    document.getElementById('containerId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/snowTransp02.gif'), url('https://vuestoragestatictof.blob.core.windows.net/pics/SneeuwLschMuurZijkant02.jpg')";
     document.getElementById('containerId').style.backgroundSize="100%";
     document.getElementById('containerId').style.backgroundRepeat="no-repeat";
     let frameHeight = 364;
@@ -62,13 +61,13 @@ export default {
     let frame = 0;
     let divtof = document.getElementById("muurVallen");
     this.StartStop = setInterval(function () {
-				if (frame == 14 ) {
+				if (frame == 15 ) {
 					clearInterval();
 				} else {
 					let frameOffset = (++frame % frames) * -frameHeight;
 					divtof.style.backgroundPosition = "0px " + frameOffset + "px";  
 				}
-    }, 200);
+    }, 550);
     // clearInterval(function (){});
     },
     myStopFunction: function() {
@@ -99,10 +98,6 @@ export default {
       this.vizierIDOffsetLeft = window.scrollX + document.querySelector('#vizierID').getBoundingClientRect().left;
       let yyy = await this.gooierAnimatie();
       let zzz = await this.maakAfdruk();
-      this.telAfdrukken++;
-      if(this.telAfdrukken == 6){
-        this.muurVallen();
-      }
     },
     gooierAnimatie: async function() {
       console.log('Begin gooierAnimatie');
@@ -192,10 +187,10 @@ export default {
   100% {left:250px; top:-30px;}
 }
 #muurVallen {
-    background-image: url("../assets/WallGroot16t.png");
+    background-image: url("../assets/WallGroot14t.png");
     background-repeat: no-repeat;
     height: 300px;
-    width: 1903px;
+    width: 533px;
     transform: scale(1.59,1.59);
     transform-origin:top;
 }
@@ -215,7 +210,7 @@ export default {
   top: 570px;
 }
 .contBackgrnd{
-  background-color:#7b9bc1;
+  background-color:#37372e;
   background-image: url("../assets//WallEnkel.png");
   /* transform: scale(1.3,1.3); */
 }

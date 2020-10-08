@@ -1,7 +1,7 @@
 <template>
   <div class="container-full-bg kleurtje hoogte padding0 d-flex justify-content-center relatief">
-    <img :key="reRenderKey" id="animation" class="img-fluid"/>
-    <div id="pookjeId" class="pookjeClass4 absoluut top440">  
+    <img :key="reRenderKey" id="animation"/>
+    <div id="pookjeId" class="absoluut">  
       <input @input="poken()" @mouseup="flapRuitenwisser()" type="range" id="range" min="1" max="9" step="1" v-model="sliderValue" />
     </div>  
   </div>
@@ -61,21 +61,21 @@ export default {
     },
     flapEENkeer: async function() {
       return new Promise((resolve, reject) => {
-      let i = 22
-      var frameHeight = 300;
-      var frames = 22;
-      var frame = 0;
-      var divtof = document.getElementById("animation");
-      this.intervalId = setInterval(() => {
-        this.nogBezig = true;
-        var frameOffset = (++frame % frames) * -frameHeight;
-        divtof.style.backgroundPosition = "0px " + frameOffset + "px";
-        if (--i < 1) {
-          clearInterval(this.intervalId)
-          this.nogBezig = false;
-          resolve(frame)
-          }
-        }, this.snelheid)
+        let i = 22
+        var frameHeight = 300;
+        var frames = 22;
+        var frame = 0;
+        var divtof = document.getElementById("animation");
+        this.intervalId = setInterval(() => {
+          this.nogBezig = true;
+          var frameOffset = (++frame % frames) * -frameHeight;
+          divtof.style.backgroundPosition = "0px " + frameOffset + "px";
+          if (--i < 1) {
+            clearInterval(this.intervalId)
+            this.nogBezig = false;
+            resolve(frame)
+            }
+          }, this.snelheid)
       })
     },
     poken() {
@@ -93,31 +93,15 @@ export default {
 
 <style scoped>
 #animation {
-    background-image: url("../assets/film04.png");
-    background-repeat: no-repeat;
-    transform: scale(1.595,1.595);
-    transform-origin:top;
-    border: none !important;
+  background-image: url("../assets/film04.png");
 }
 #pookjeId { 
   visibility:visible;
-  background-image: url("../assets/pook5.png");
-} 
-.pookjeClass4{
   background-image: url("https://vuestoragestatictof.blob.core.windows.net/pics/pook4.png");
   background-position: center;
   background-size: 45%;
   background-repeat: no-repeat;
-}
-.top440{
-  top: 440px;
-}
-.kleurtje{
-  background-color:#37372e;
-}
-.hoogte{
-  min-height: 478px;
-  max-height: 100px;
+  bottom: -80px;
 }
 .absoluut{
   position: absolute;

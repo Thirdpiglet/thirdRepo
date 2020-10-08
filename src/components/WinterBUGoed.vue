@@ -1,10 +1,19 @@
 <template>
 
 <div>
-  <div id="containerId" class="container-full-bg contBackgrnd hoogte padding0 d-flex justify-content-center relatief">
-    <div class="absoluut">
+  <div id="containerId" class="row row-no-margin container-full-bg contBackgrnd hoogte padding0 d-flex justify-content-center relatief">
+
+    <!-- <div class="row row-no-margin"> -->
+            <div id="muurVallen0" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-4 col-no-padding"></div>
+            <div id="muurVallen" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-5 col-no-padding"></div>
+            <div id="muurVallen2" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-3 col-no-padding"></div>
+    <!-- </div> -->
+
+
+    <!-- <div class="absoluut">
       <div :key="reRenderKey" id="muurVallen"></div>
-    </div>
+      <div id="muurVallen2"></div>
+    </div> -->
     <div id="pookjeId" class="pookjeClass4 absoluut top570">  
       <input @input="poken()" @mouseup="muurVallen()" type="range" id="range" min="1" max="9" step="1" v-model="sliderValue" />
     </div>  
@@ -39,7 +48,6 @@ export default {
       nogBezig: false,
       vizierIDOffsetTop: 0,
       vizierIDOffsetLeft: 0,
-      telAfdrukken: 0,
     };
   },
   created() {
@@ -53,22 +61,26 @@ export default {
       }
     },
     muurVallen: function() {
-    // document.getElementById('containerId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/snowTransp02.gif'), url('https://vuestoragestatictof.blob.core.windows.net/pics/SneeuwLandschap02.jpg')";
     document.getElementById('containerId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/snowTransp02.gif'), url('https://vuestoragestatictof.blob.core.windows.net/pics/SneeuwLandschap02.jpg')";
+    // document.getElementById('containerId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/snowTransp02.gif'), url('https://vuestoragestatictof.blob.core.windows.net/pics/SneeuwLschMuurZijkant02.jpg')";
     document.getElementById('containerId').style.backgroundSize="100%";
     document.getElementById('containerId').style.backgroundRepeat="no-repeat";
     let frameHeight = 364;
     let frames = 15;
     let frame = 0;
     let divtof = document.getElementById("muurVallen");
+    let divtof0 = document.getElementById("muurVallen0");
+    let divtof2 = document.getElementById("muurVallen2");
     this.StartStop = setInterval(function () {
-				if (frame == 14 ) {
+				if (frame == 15 ) {
 					clearInterval();
 				} else {
 					let frameOffset = (++frame % frames) * -frameHeight;
-					divtof.style.backgroundPosition = "0px " + frameOffset + "px";  
+          divtof.style.backgroundPosition = "0px " + frameOffset + "px";
+          divtof0.style.backgroundPosition = "0px " + frameOffset + "px"; 
+          divtof2.style.backgroundPosition = "0px " + frameOffset + "px"; 
 				}
-    }, 200);
+    }, 150);
     // clearInterval(function (){});
     },
     myStopFunction: function() {
@@ -99,10 +111,6 @@ export default {
       this.vizierIDOffsetLeft = window.scrollX + document.querySelector('#vizierID').getBoundingClientRect().left;
       let yyy = await this.gooierAnimatie();
       let zzz = await this.maakAfdruk();
-      this.telAfdrukken++;
-      if(this.telAfdrukken == 6){
-        this.muurVallen();
-      }
     },
     gooierAnimatie: async function() {
       console.log('Begin gooierAnimatie');
@@ -192,12 +200,31 @@ export default {
   100% {left:250px; top:-30px;}
 }
 #muurVallen {
-    background-image: url("../assets/WallGroot16t.png");
+    background-image: url("../assets/WallGroot14t.png");
     background-repeat: no-repeat;
     height: 300px;
-    width: 1903px;
+    width: 533px;
     transform: scale(1.59,1.59);
     transform-origin:top;
+    z-index: +3;
+}
+#muurVallen0 {
+    background-image: url("../assets/WallGroot14t.png");
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 533px;
+    transform: scale(1.59,1.59);
+    transform-origin:top;
+    z-index: +2;
+}
+#muurVallen2 {
+    background-image: url("../assets/WallGroot14t.png");
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 533x;
+    transform: scale(1.59,1.59);
+    transform-origin:top;
+    z-index: 0;
 }
 /* .winterl {
     background-image: url("../assets/snowTransp01.gif"), url("../assets/SneeuwLandschap02.jpg");
@@ -215,7 +242,7 @@ export default {
   top: 570px;
 }
 .contBackgrnd{
-  background-color:#7b9bc1;
+  background-color:#37372e;
   background-image: url("../assets//WallEnkel.png");
   /* transform: scale(1.3,1.3); */
 }

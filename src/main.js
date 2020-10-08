@@ -15,6 +15,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import VueRouter from 'vue-router';
 import App from './App.vue'
 import { routes } from './routes';
+
+import drag from "v-drag";
+// const drag = require("v-drag");
+Vue.use(drag);
+
 // import vuetify from './plugins/vuetify';
 // import tinymce from 'tinymce';
 

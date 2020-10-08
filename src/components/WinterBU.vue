@@ -1,12 +1,16 @@
 <template>
 
 <div>
-  <div id="containerId" class="container-full-bg contBackgrnd hoogte padding0 d-flex justify-content-center relatief">
+
+  <div id="mainDiv"></div>
+
+  <div class="container-full-bg kleurtje hoogte padding0 d-flex justify-content-center relatief">
+    <div id="winterlandschap" class="winterl absoluut"></div> 
     <div class="absoluut">
-      <div :key="reRenderKey" id="muurVallen"></div>
+      <div :key="reRenderKey" id="animation"></div>
     </div>
     <div id="pookjeId" class="pookjeClass4 absoluut top570">  
-      <input @input="poken()" @mouseup="muurVallen()" type="range" id="range" min="1" max="9" step="1" v-model="sliderValue" />
+      <input @input="poken()" @mouseup="startAnimation()" type="range" id="range" min="1" max="9" step="1" v-model="sliderValue" />
     </div>  
   </div>
   <div v-drag="{ axis: 'x, y', handle: '#ballenGooier' }"
@@ -35,11 +39,6 @@ export default {
       reRenderKey: 0,
       StartStop: null,
       laatsteFrame: 99,
-      intervalId: 0,
-      nogBezig: false,
-      vizierIDOffsetTop: 0,
-      vizierIDOffsetLeft: 0,
-      telAfdrukken: 0,
     };
   },
   created() {
@@ -52,23 +51,40 @@ export default {
         return false
       }
     },
-    muurVallen: function() {
-    // document.getElementById('containerId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/snowTransp02.gif'), url('https://vuestoragestatictof.blob.core.windows.net/pics/SneeuwLandschap02.jpg')";
-    document.getElementById('containerId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/snowTransp02.gif'), url('https://vuestoragestatictof.blob.core.windows.net/pics/SneeuwLandschap02.jpg')";
-    document.getElementById('containerId').style.backgroundSize="100%";
-    document.getElementById('containerId').style.backgroundRepeat="no-repeat";
-    let frameHeight = 364;
-    let frames = 15;
-    let frame = 0;
-    let divtof = document.getElementById("muurVallen");
+    gooierAnimatie: async function() {
+      // alert('effe wachten op gooierAnimatie');
+      var frameHeight = 365;
+      var frames = 9;
+      var frame = 0;
+      var divtof = document.getElementById("ballenGooier");
+      var snelheid = 190;
+      await setInterval( async function () {
+        // console.log('frame: ' + frame);
+        if (frame == 9) {
+          this.laatsteFrame = frame;
+          clearInterval();
+        } else {
+          var frameOffset = (++frame % frames) * -frameHeight;
+          divtof.style.backgroundPosition = "0px " + frameOffset + "px";  
+        }
+      }, 120);
+      // alert('gooierAnimatie KLAAR, this.laatsteFrame: ' + this.laatsteFrame);
+      return this.laatsteFrame;
+    },
+    startAnimation: function() {
+    // this.reRenderKey += 1;
+    var frameHeight = 364;
+    var frames = 15;
+    var frame = 0;
+    var divtof = document.getElementById("animation");
     this.StartStop = setInterval(function () {
-				if (frame == 14 ) {
+				if (frame == 15 ) {
 					clearInterval();
 				} else {
-					let frameOffset = (++frame % frames) * -frameHeight;
+					var frameOffset = (++frame % frames) * -frameHeight;
 					divtof.style.backgroundPosition = "0px " + frameOffset + "px";  
 				}
-    }, 200);
+    }, this.snelheid);
     // clearInterval(function (){});
     },
     myStopFunction: function() {
@@ -81,7 +97,7 @@ export default {
       //  background-image: var(--slide-2);
       this.snelheid = this.snelheid -40;
       this.reRenderKey += 1;
-      // this.muurVallen();
+      // this.startAnimation();
     },
     poken() {
       let zzzz = "https://vuestoragestatictof.blob.core.windows.net/pics/pook".concat(this.sliderValue + ".png");
@@ -91,62 +107,53 @@ export default {
       if(this.sliderValue == 1) {
         this.myStopFunction();
       }
-      // this.muurVallen();
+      // this.startAnimation();
     },
     gooien: async function ()
     {
-      this.vizierIDOffsetTop = window.scrollY + document.querySelector('#vizierID').getBoundingClientRect().top;
-      this.vizierIDOffsetLeft = window.scrollX + document.querySelector('#vizierID').getBoundingClientRect().left;
-      let yyy = await this.gooierAnimatie();
-      let zzz = await this.maakAfdruk();
-      this.telAfdrukken++;
-      if(this.telAfdrukken == 6){
-        this.muurVallen();
-      }
-    },
-    gooierAnimatie: async function() {
-      console.log('Begin gooierAnimatie');
-      return new Promise((resolve, reject) => {
-        let i = 9
-        var frameHeight = 365;
-        var frames = 9;
-        var frame = 0;
-        var divtof = document.getElementById("ballenGooier");
-        this.intervalId = setInterval(() => {
-          this.nogBezig = true;
-          var frameOffset = (++frame % frames) * -frameHeight;
-          divtof.style.backgroundPosition = "0px " + frameOffset + "px";
-          if (--i < 1) {
-            clearInterval(this.intervalId)
-            this.nogBezig = false;
-            resolve(frame)
-            }
-          }, this.snelheid)
-      })
+      var yyy = await this.gooierAnimatie();
+      var zzz = await this.maakAfdruk();
     },
     maakAfdruk: async function () {
-      let l_containerId = document.getElementById('containerId');
-      let afdrukTop = this.vizierIDOffsetTop -138;
-			let afdrukLeft = this.vizierIDOffsetLeft +13;
+      let l_mainDiv = document.getElementById('mainDiv');
+      let l_vizierID = document.getElementById('vizierID');
+      let l_ballenGooier = document.getElementById('ballenGooier');
+      let vizierIDOffsetTop = window.scrollY + document.querySelector('#vizierID').getBoundingClientRect().top;
+      let vizierIDOffsetLeft = window.scrollX + document.querySelector('#vizierID').getBoundingClientRect().left;
+      let ballenGooierOffsetTop = window.scrollY + document.querySelector('#ballenGooier').getBoundingClientRect().top;
+      let ballenGooierOffsetLeft = window.scrollX + document.querySelector('#ballenGooier').getBoundingClientRect().left;
+      // console.log('yyyy; ' + yyyy + '| xxxx; ' + xxxx); 
+      // var afdrukTop = l_vizierID.offsetTop + l_ballenGooier.offsetTop -2;
+			// var afdrukLeft = l_vizierID.offsetLeft + l_ballenGooier.offsetLeft +13;
+      var afdrukTop = vizierIDOffsetTop + ballenGooierOffsetTop -2;
+			var afdrukLeft = vizierIDOffsetLeft + ballenGooierOffsetLeft +13;
+      // console.log('l_mainDiv; ' + l_mainDiv + ' | l_vizierID; ' + l_vizierID + ' | l_ballenGooier; ' + l_ballenGooier +
+      //       ' | afdrukTop; ' + afdrukTop + ' | afdrukLeft; ' + afdrukLeft
+      //       );
+      // console.log('l_ballenGooier.offsetTop; ' + l_ballenGooier.offsetTop + ' | l_ballenGooier.offsetLeft; ' + l_ballenGooier.offsetLeft
+      //       );
+
 			let balAdruk = document.createElement("img");
       // balAdruk.src = "../assets/sneeuwbal02.png";
       balAdruk.src = "https://vuestoragestatictof.blob.core.windows.net/pics/sneeuwbal02.png";
 			balAdruk.style.width = "50px";
-      balAdruk.style.height = "auto";
-      balAdruk.style.opacity = ".8";
-      // balAdruk.style.zIndex = "+9";
+			balAdruk.style.height = "auto";
+
 			let imgLink = document.createElement("a");
 			imgLink.appendChild(balAdruk);
+
 			let imgLabel = document.createElement("p");
+
 			let imgContainer = document.createElement("div");
 			imgContainer.style.position = "absolute";
 			imgContainer.style.top = afdrukTop + "px";
 			imgContainer.style.left = afdrukLeft + "px";
 			imgContainer.style.float = "left";
 			imgContainer.style.margin = "5px";
+
 			imgContainer.appendChild(imgLabel);
 			imgContainer.appendChild(imgLink);
-			l_containerId.appendChild(imgContainer);
+			l_mainDiv.appendChild(imgContainer);
 		}
   }
 }
@@ -168,10 +175,11 @@ export default {
   animation-name: vizier;
   animation-duration: 2s;
   animation-iteration-count: infinite;
-  opacity: 0.2;
+  opacity: 0.1;
 }
 @keyframes vizier {
-  0%   {left:250px; top:-30px;}
+  0%   {left:250px; top:30px;}
+  /* 0%   {left:250px; top:-30px;}
   6%   {left:225px; top:-15px;}
   12%  {left:200px; top:0px;}
   
@@ -189,22 +197,21 @@ export default {
   
   88%  {left:300px; top:0px;}
   94%  {left:275px; top:-15px;}	
-  100% {left:250px; top:-30px;}
+  100% {left:250px; top:-30px;} */
+  100% {left:250px; top:30px;}
 }
-#muurVallen {
-    background-image: url("../assets/WallGroot16t.png");
-    background-repeat: no-repeat;
-    height: 300px;
-    width: 1903px;
-    transform: scale(1.59,1.59);
-    transform-origin:top;
-}
-/* .winterl {
-    background-image: url("../assets/snowTransp01.gif"), url("../assets/SneeuwLandschap02.jpg");
+#animation {
+    background-image: url("../assets/WallGroot13t.png");
     background-repeat: no-repeat;
     height: 300px;
     width: 533px;
-} */
+}
+.winterl {
+    background-image: url("../assets/winterlandschap.gif");
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 533px;
+}
 .pookjeClass4{
   background-image: url("https://vuestoragestatictof.blob.core.windows.net/pics/pook4.png");
   background-position: center;
@@ -214,8 +221,8 @@ export default {
 .top570{
   top: 570px;
 }
-.contBackgrnd{
-  background-color:#7b9bc1;
+.kleurtje{
+  background-color:#37372e;
   background-image: url("../assets//WallEnkel.png");
   /* transform: scale(1.3,1.3); */
 }
