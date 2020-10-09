@@ -2,19 +2,15 @@
 
 <div>
   <div id="containerId" class="container-full-bg contBackgrnd hoogte padding0 d-flex justify-content-center relatief">
-    <div class="absoluut">
-      <div :key="reRenderKey" id="muurVallen"></div>
-    </div>
-    <div id="pookjeId" class="pookjeClass4 absoluut top570">  
-      <input @input="poken()" @mouseup="muurVallen()" type="range" id="range" min="1" max="9" step="1" v-model="sliderValue" />
-    </div>  
+    <button id="buttonX" class="buttonX"/>
+    <div :key="reRenderKey" id="muurVallen"></div>
   </div>
   <div v-drag="{ axis: 'x, y', handle: '#ballenGooier' }"
   id="ballenGooier" type="button" @mouseup="gooien()"  class="ui-widget-content relative">
     <div id="vizierID" class="absolute"></div>
   </div>
   <dragBoy/>
-
+<!-- <button id="buttonX" class="buttonX"/> -->
 </div> 
 
 </template>
@@ -40,9 +36,23 @@ export default {
       vizierIDOffsetTop: 0,
       vizierIDOffsetLeft: 0,
       telAfdrukken: 0,
+      maxAfdrukken: 6,
     };
   },
   created() {
+  },
+  mounted() {
+    window.addEventListener("keypress", e => {
+      if(String.fromCharCode(e.keyCode) == 'x'){
+        this.maxAfdrukken++;
+      }else if(String.fromCharCode(e.keyCode) == 'y'){
+        this.maxAfdrukken--;
+      }else if(String.fromCharCode(e.keyCode) == 'r'){
+        // alert('sdfsd');
+        // this.$forceUpdate();
+        location.reload();
+      }
+    });
   },
   methods: {
     isMobile() {
@@ -68,30 +78,7 @@ export default {
 					let frameOffset = (++frame % frames) * -frameHeight;
 					divtof.style.backgroundPosition = "0px " + frameOffset + "px";  
 				}
-    }, 200);
-    // clearInterval(function (){});
-    },
-    myStopFunction: function() {
-      alert('Hij stopt alleen maar met een alert(?)');
-      clearInterval(this.StartStop);
-      // this.reRenderKey = this.reRenderKey + 1;
-    },
-    sneller: function() {
-      // document.body.style.setProperty("--board-bg-color", "#"+Color);
-      //  background-image: var(--slide-2);
-      this.snelheid = this.snelheid -40;
-      this.reRenderKey += 1;
-      // this.muurVallen();
-    },
-    poken() {
-      let zzzz = "https://vuestoragestatictof.blob.core.windows.net/pics/pook".concat(this.sliderValue + ".png");
-      document.getElementById('pookjeId').style.backgroundImage = "url("+zzzz+")";
-      this.snelheid = (10 - this.sliderValue) * 30;
-      this.reRenderKey = this.reRenderKey + 1;
-      if(this.sliderValue == 1) {
-        this.myStopFunction();
-      }
-      // this.muurVallen();
+      }, 200);
     },
     gooien: async function ()
     {
@@ -100,8 +87,10 @@ export default {
       let yyy = await this.gooierAnimatie();
       let zzz = await this.maakAfdruk();
       this.telAfdrukken++;
-      if(this.telAfdrukken == 6){
+      if(this.telAfdrukken > this.maxAfdrukken){
         this.muurVallen();
+        this.telAfdrukken = 0;
+        this.maxAfdrukken = 6;
       }
     },
     gooierAnimatie: async function() {
@@ -222,6 +211,14 @@ export default {
 .hoogte{
   min-height: 478px;
   max-height: 100px;
+}
+.buttonX{
+  top: 1000px;
+  left: 500px;
+  height: 40px;
+  width: 80px;
+  background-color: red;
+  z-index: +1;
 }
 .padding0{
   padding: 0px;

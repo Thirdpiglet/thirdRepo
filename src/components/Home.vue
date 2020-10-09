@@ -365,27 +365,40 @@ height: auto;
   /* margin-bottom: 0px;
   line-height: 1; */
 }
-  #animation {
-    background-image: url("../assets/imgNotFound.png");
-    background-repeat: no-repeat;
-    height: 300px;
-    width: 533px;
-    transform-origin:top;
-    /* Stomme truc om irritant randje we te krijgen >>> */
-    padding: 150px;
-    /* <<< Stomme truc om irritant randje we te krijgen */
-  }
+.kleurtje{
+  background-color:#37372e;
+}
+#animation {
+  background-image: url("../assets/imgNotFound.png");
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 533px;
+  transform-origin:top;
+  /* Stomme truc om irritant randje we te krijgen >>> */
+  padding: 150px;
+  /* <<< Stomme truc om irritant randje we te krijgen */
+}
+.buttonX{
+  top: 0px;
+  left: -20px;
+  height: 40px;
+  width: 80px;
+  padding: 0px;
+  background-color: grey;
+  position: absolute;
+  z-index: +1;
+}
 @media screen and (min-width: 1001px) {
   #animation {
     transform: scale(1.59,1.59);
-  }
-  .kleurtje{
-    background-color:#37372e;
   }
   .hoogte{
     height: 478px;
     min-height: 400px;
     max-height: 478px;
+  }
+  .buttonX{
+    background-color: red;
   }
   div.blogtitletext {
     font-size: 32px;
@@ -401,11 +414,11 @@ height: auto;
   }
 }
 @media screen and (min-width: 701px) and (max-width: 1000px) {
-  .kleurtje{
-    background-color:#37372e;
-  }
   #animation {
     transform: scale(1.1,1.1);
+  }
+  .buttonX{
+    background-color: green;
   }
   .hoogte{
     height: 331px;
@@ -426,11 +439,11 @@ height: auto;
   }
 }
 @media screen and (min-width: 401px) and (max-width: 700px) {
-  .kleurtje{
-    background-color:#37372e;
-  }
   #animation {
     transform: scale(0.7,0.7);
+  }
+  .buttonX{
+    background-color: lightblue;
   }
   .hoogte{
     height: 210px;
@@ -457,6 +470,9 @@ height: auto;
   #animation {
     transform: scale(0.3,0.3);
     width: 400px;
+  }
+  .buttonX{
+    background-color: yellow;
   }
   .hoogte{
     height: 111px;

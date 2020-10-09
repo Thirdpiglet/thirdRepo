@@ -1,6 +1,13 @@
 <template>
   <div class="container-full-bg kleurtje hoogte padding0 d-flex justify-content-center relatief">
-    <img :key="reRenderKey" id="animation"/>
+    <div class="relatief">
+      <img :key="reRenderKey" id="animation"/>
+      <button id="buttonX" class="buttonX">
+        <!-- <router-link :to="{name: 'blogedit'}">
+          Naar Winter thema
+        </router-link> -->
+      </button>
+    </div>
     <div id="pookjeId" class="absoluut">  
       <input @input="poken()" @mouseup="flapRuitenwisser()" type="range" id="range" min="1" max="9" step="1" v-model="sliderValue" />
     </div>  
