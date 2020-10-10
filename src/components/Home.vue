@@ -1,111 +1,27 @@
 <template>
 <div>
-  <div>
-    <vue-load-image>
-      <!-- <img slot="image" src="https://vuestoragestatictof.blob.core.windows.net/pics/Ruitenwissers05.gif"/>
-      <img slot="preloader" src="https://flevix.com/wp-content/uploads/2020/01/Preloader.gif"/>
-      <div slot="error">error message</div> -->
-    </vue-load-image>
-  </div>
-  <div class="container-full-bg kleurtje hoogte padding0 d-flex justify-content-center relatief">
-    <div class="relatief">
-      <div id="ruitwId3" class="relatief">
-        <div id="testing">
-        </div>
-        <!-- <img id="myImg" class="img-fluid" src="https://vuestoragestatictof.blob.core.windows.net/pics/Ruitenwissers05.gif"> -->
-        <!-- <img id="myImg" class="img-fluid" src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2020/05/Image-Files-Blog-Vector.jpg"> -->
-        <!-- <vue-load-image>
-          <img :key="reRenderKey" id="myImg" class="img-fluid" slot="image" src="https://vuestoragestatictof.blob.core.windows.net/pics/Ruitenwissers05.gif"/>
-          <img slot="preloader" src="https://flevix.com/wp-content/uploads/2020/01/Preloader.gif"/>
-          <div slot="error">error message</div>
-        </vue-load-image> -->
-        <div>
-          <img :key="reRenderKey" id="myImg" class="img-fluid" slot="image" src="https://vuestoragestatictof.blob.core.windows.net/pics/Ruitenwissers05.gif"/>
-        </div>
-      
-      </div>
-    </div>
-    <div id="pookjeId" class="pookjeClass absoluut top570" :style="cssProps">
-      <input @input="poken()" type="range" id="range" min="1" max="4" step="1" v-model="sliderValue" />
-    </div>  
-  </div>
+  <herfst/>
 </div>
 </template>
 
 <script>
-import VueLoadImage from 'vue-load-image'
+// import VueLoadImage from 'vue-load-image'
+import herfst from './Herfst'
 export default {
   name: 'Home',
   components: {
-    'vue-load-image': VueLoadImage
+    // 'vue-load-image': VueLoadImage
+    herfst
   },
   data() {
     return {
-      cssProps: {
-        backgroundImage: `url(${require('@/assets/pook4.png')})`
-      },
-      sliderValue: 3,
-      forceRender: 0,
-      reRenderKey: 0,
-      images: [],
     };
   },
   created: async function() {
-    var element = document.getElementById('testing');
-      element.style.cssText = 'display:none;';
-    await this.gifsLaden();
+  },
+  mounted: async function() {
   },
   methods: {
-    isMobile() {
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        return true
-      } else {
-        return false
-      }
-    },
-    gifsLaden: async function() {
-      // setTimeout(function(){
-      alert('Begin. ..');
-      this.images[0] = new Image();
-			this.images[0].src = "https://vuestoragestatictof.blob.core.windows.net/pics/RuitenwissersSlow05.gif";
-			this.images[1] = new Image();
-			this.images[1].src = "https://vuestoragestatictof.blob.core.windows.net/pics/Ruitenwissers05.gif";
-			this.images[2] = new Image();
-			this.images[2].src = "https://vuestoragestatictof.blob.core.windows.net/pics/RuitenwissersFast1_05.gif";
-			this.images[3] = new Image();
-      this.images[3].src = "https://vuestoragestatictof.blob.core.windows.net/pics/RuitenwissersFast2_05.gif";
-      //  }, 6000);
-      alert('klaar!');
-      this.sliderValue = 4;
-      this.poken();
-    },
-    poken() {
-      if (this.sliderValue == 1) {
-        // alert('1');
-        // this.reRenderKey = this.reRenderKey +1;
-        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/pook2.png')";
-        document.getElementById("myImg").src = (this.images[0].src);
-        // this.reRenderKey = this.reRenderKey +1;
-      } else if  (this.sliderValue == 2) {
-        // alert('2');
-        // this.reRenderKey = this.reRenderKey +1;
-        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/pook4.png')";
-        document.getElementById("myImg").src = (this.images[1].src);
-        // this.reRenderKey = this.reRenderKey +1;
-      } else if  (this.sliderValue == 3) {
-        // alert('3');
-        // this.reRenderKey = this.reRenderKey +1;
-        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/pook5.png')";
-        document.getElementById("myImg").src = (this.images[2].src);
-        // this.reRenderKey = this.reRenderKey +1;
-      } else {
-        // alert('4');
-        // this.reRenderKey = this.reRenderKey +1;
-        document.getElementById('pookjeId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/pook7.png')";
-        document.getElementById("myImg").src = (this.images[3].src);
-        // this.reRenderKey = this.reRenderKey +1; 
-      }
-    },
   }
 }
 </script>
@@ -295,7 +211,7 @@ z-index:-1;
 width: 20%;
 height: auto;
 }
-/* @media screen and (min-width: 601px) {
+@media screen and (min-width: 601px) {
   div.titletext {
     font-size: 46px;
     font-weight:700;
@@ -322,7 +238,7 @@ height: auto;
     line-height: 16px;
     text-align: center;
   }
-} */
+}
 .p {
    margin-top:5px;
    margin-bottom:5px

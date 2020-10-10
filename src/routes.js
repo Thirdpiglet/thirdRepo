@@ -6,6 +6,7 @@ import blogEdit from './components/blog/BlogEdit.vue';
 import contact from './components/Contact.vue';
 import herfst from './components/Herfst.vue';
 import winter from './components/Winter.vue';
+import herfstHQ from './components/HerfstHQ.vue';
 import vierdebiggetje from './components/VierdeBiggetje.vue';
 // import HelloWorld from './components/HelloWorld.vue';
 
@@ -22,7 +23,23 @@ export const routes = [
     },
     // { path: '/HelloWorld', component: HelloWorld },
     { path: '/contact', component: contact },
-    { path: '/herfst', component: herfst },
-    { path: '/winter', component: winter },
+    { path: 
+        '/herfst',
+        name: 'herfst', 
+        component: herfst,
+        props: false, 
+    },
+    { path: 
+        '/herfstHQ',
+        name: 'herfstHQ', 
+        component: herfstHQ,
+        props: false, 
+    },
+    { 
+        path: '/winter', 
+        name: 'winter',
+        component: winter,
+        props: false,
+    },
     { path: '/vierdebiggetje', component: vierdebiggetje },
 ];

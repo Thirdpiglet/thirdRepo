@@ -1,8 +1,7 @@
 <template>
-
 <div>
   <div id="containerId" class="container-full-bg contBackgrnd hoogte padding0 d-flex justify-content-center relatief">
-    <button id="buttonX" class="buttonX"/>
+    <!-- <button id="buttonX" class="buttonX"/> -->
     <div :key="reRenderKey" id="muurVallen"></div>
   </div>
   <div v-drag="{ axis: 'x, y', handle: '#ballenGooier' }"
@@ -10,7 +9,6 @@
     <div id="vizierID" class="absolute"></div>
   </div>
   <dragBoy/>
-<!-- <button id="buttonX" class="buttonX"/> -->
 </div> 
 
 </template>
@@ -18,7 +16,7 @@
 <script>
 import dragBoy from './DragBoy';
 export default {
-  name: 'Home',
+  name: 'Winter',
   components: { dragBoy },
   data() {
     return {

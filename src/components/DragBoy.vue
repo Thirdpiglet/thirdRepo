@@ -9,7 +9,13 @@
     <div id="pookjeIdheader" @click="dragElement(elmnt)">Click here to move</div>
   </div> -->
 
-  <div v-drag>Drag me!</div>
+  <div v-drag>Drag me!
+    <button id="buttonX" class="buttonX">
+      <router-link :to="{name: 'herfst'}">
+        Naar Herfst thema
+      </router-link>
+    </button>
+  </div>
 
 </div>
 

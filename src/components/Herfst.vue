@@ -3,9 +3,14 @@
     <div class="relatief">
       <img :key="reRenderKey" id="animation"/>
       <button id="buttonX" class="buttonX">
-        <!-- <router-link :to="{name: 'blogedit'}">
+        <router-link :to="{name: 'winter'}">
           Naar Winter thema
-        </router-link> -->
+        </router-link>
+      </button>
+      <button id="buttonY" class="buttonY">
+        <router-link :to="{name: 'herfstHQ'}">
+          Hoge kwaliteit
+        </router-link>
       </button>
     </div>
     <div id="pookjeId" class="absoluut">  
@@ -112,5 +117,15 @@ export default {
 }
 .absoluut{
   position: absolute;
+}
+.buttonY{
+  top: 0px;
+  left: 70px;
+  height: 40px;
+  width: 80px;
+  padding: 0px;
+  background-color: rgb(141, 95, 26);
+  position: absolute;
+  z-index: +1;
 }
 </style>

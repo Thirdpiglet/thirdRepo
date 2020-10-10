@@ -32,7 +32,7 @@
         <div class="numbertext">1 / 3</div>
         <a href="https://hanssperwer.wordpress.com/"> <img src="https://vuestoragestatic.blob.core.windows.net/plaatjes/SiteIcon02.png" alt="hanssperwer" /> </a> 
         <a href="https://jolandadorst.wordpress.com/"> <img src="https://vuestoragestatic.blob.core.windows.net/plaatjes/SiteIcon01.png" alt="jolandadorst" /> </a> 
-        <a href="http://www.thirdpiglet.nl/"> <img src="https://vuestoragestatic.blob.core.windows.net/plaatjes/SiteIcon03.png" alt="hanssperwer" /> </a> 
+        <a href="https://www.stralenindezorg.nl/"> <img src="https://vuestoragestatictof.blob.core.windows.net/pics/SiteIcon05.png" alt="stralenindezorg" /> </a> 
         <a href="http://localhost:8080/mijn-abnamro/abnamro/sdp/widget.html#/overviewdepositamountpolicy"> <img src="https://vuestoragestatic.blob.core.windows.net/plaatjes/SiteIcon04.png" alt="sdp" /> </a>
         <div class="text">Caption Text</div>
       </div>

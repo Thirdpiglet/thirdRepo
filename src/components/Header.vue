@@ -62,8 +62,8 @@
             <router-link to="/user" tag="li" active-class="active"><a>Voorbeelden</a></router-link>
             <router-link to="/blog" tag="li" active-class="active"><a>Blog</a></router-link>
             <router-link to="/contact" tag="li" active-class="active"><a>Contact</a></router-link>
-            <router-link to="/herfst" tag="li" active-class="active"><a>Herfst</a></router-link>
-            <router-link to="/winter" tag="li" active-class="active"><a>Winter</a></router-link>
+            <!-- <router-link to="/herfst" tag="li" active-class="active"><a>Herfst</a></router-link> -->
+            <!-- <router-link to="/winter" tag="li" active-class="active"><a>Winter</a></router-link> -->
             <router-link to="/vierdebiggetje" tag="li" active-class="active"><a>4e Biggetje</a></router-link>
           </li> 
         </ul>
