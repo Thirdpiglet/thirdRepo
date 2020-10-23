@@ -4,7 +4,7 @@
     <div class="container-full-bg">
       <div class="jumbotron kleurtje">
         <p></p><p></p>
-        <div class="PTSans titletext">Blog</div>
+        <div class="PTSans titletext">Contact</div>
         <div class="PTSans bodytext">
           Leuk als je een berichtje achterlaat
         </div>

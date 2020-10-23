@@ -73,7 +73,7 @@ export default {
         // set the element's new position:
         this.elmnt.style.top = (this.elmnt.offsetTop - this.pos2) + "px";
         this.elmnt.style.left = (this.elmnt.offsetLeft - this.pos1) + "px";
-        console.log(this.elmnt.style.top + ' | ' + this.elmnt.style.left);
+        // console.log(this.elmnt.style.top + ' | ' + this.elmnt.style.left);
       },
       closeDragElement: function () {
         /* stop moving when mouse button is released:*/

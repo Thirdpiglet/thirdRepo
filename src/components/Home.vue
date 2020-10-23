@@ -211,34 +211,6 @@ z-index:-1;
 width: 20%;
 height: auto;
 }
-@media screen and (min-width: 601px) {
-  div.titletext {
-    font-size: 46px;
-    font-weight:700;
-    line-height: 64px;
-    text-align: center;
-  }
-  div.bodytext {
-    font-size: 20px;
-    font-weight:400;
-    line-height: 32px;
-    text-align: center;
-  }
-}
-@media screen and (max-width: 600px) {
-  div.titletext {
-    font-size: 40px;
-    font-weight:700;
-    line-height: 32px;
-    text-align: center;
-  }
-    div.bodytext {
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 16px;
-    text-align: center;
-  }
-}
 .p {
    margin-top:5px;
    margin-bottom:5px
@@ -281,8 +253,44 @@ height: auto;
   /* margin-bottom: 0px;
   line-height: 1; */
 }
-.kleurtje{
-  background-color:#37372e;
+.titletext {
+  font-size: 46px;
+  font-weight:700;
+  line-height: 64px;
+  text-align: center;
+}
+.bodytext {
+  font-size: 20px;
+  font-weight:400;
+  line-height: 32px;
+  text-align: center;
+}
+.blogtitletext {
+  font-weight:400;
+  text-align: center;
+}
+.blogbodytext {
+  font-weight:400;
+  text-align: left;
+}
+.responsetitletext {
+  font-weight:400;
+  text-align: left;
+  padding-left: 0pt;
+}
+.responsebodytext {
+  font-weight:400;
+  text-align: left;
+}
+textarea.responsebodytext {
+  font-weight:400;
+  text-align: left;
+}
+  .responsefootertext {
+  font-weight:400;
+  text-align: left;
+  color: grey;
+  /* padding-right: 11px; */
 }
 #animation {
   background-image: url("../assets/imgNotFound.png");
@@ -295,117 +303,438 @@ height: auto;
   /* <<< Stomme truc om irritant randje we te krijgen */
 }
 .buttonX{
-  top: 0px;
-  left: -20px;
+  opacity: .6;
   height: 40px;
   width: 80px;
   padding: 0px;
-  background-color: grey;
+  position: absolute;
+  opacity: .6;
+  z-index: +1;
+}
+.buttonY{
+  padding: 0px;
+  background-image: url("../assets/HQ07.png");
+  background-size: 100%;
   position: absolute;
   z-index: +1;
 }
-@media screen and (min-width: 1001px) {
+.fxw700 {
+    font-weight:700;
+    color: black;
+    padding: 0%;
+}
+.fxw400 {
+  font-weight:400;
+}
+.fxxw700 {
+  font-weight:700;
+}
+.thirdPiglet-image {
+  background-image: url("../assets/3rdPigletLogo9.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 1200px) {
+  .fxw700 {
+    font-size: 35px;
+  }
+  .fxxw700 {
+    font-size: 18px;
+  }
+  .fxw400 {
+    font-size: 15px;
+  }
+  .titletext {
+    font-size: 46px;
+    line-height: 64px;
+  }
+  .bodytext {
+    font-size: 20px;
+    line-height: 32px;
+  }
+  .thirdPiglet-image {
+    background-size: 75%;
+  }
   #animation {
     transform: scale(1.59,1.59);
+  }
+  .buttonX{
+    top: 30px;
+    left: -150px;
+  }
+  .buttonY{
+    top: 20px;
+    right: -150px;
+    height: 50px;
+    width: 50px;
   }
   .hoogte{
     height: 478px;
     min-height: 400px;
     max-height: 478px;
   }
-  .buttonX{
-    background-color: red;
-  }
-  div.blogtitletext {
+  .blogtitletext {
     font-size: 32px;
-    font-weight:400;
     line-height: 64px;
-    text-align: center;
   }
-  div.blogbodytext {
+  .blogbodytext {
     font-size: 20px;
-    font-weight:400;
     line-height: 32px;
-    text-align: left;
+  }
+  .responsetitletext {
+    font-size: 24px;
+    line-height: 36px;
+  }
+  .responsebodytext {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  textarea.responsebodytext {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .responsefootertext {
+    font-size: 10px;
+    line-height: 24px;
+    color: grey;
+    /* padding-right: 11px; */
+  }
+  .thirdPiglet-image {
+    background-size: 50%;
+    margin-left: 10px;
   }
 }
-@media screen and (min-width: 701px) and (max-width: 1000px) {
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .fxw700 {
+    font-size: 25px;
+  }
+  .fxxw700 {
+    font-size: 12px;
+  }
+  .fxw400 {
+    font-size: 13px;
+  }
+  .titletext {
+    font-size: 46px;
+    line-height: 64px;
+  }
+  .bodytext {
+    font-size: 20px;
+    line-height: 32px;
+  }
+  .thirdPiglet-image {
+    background-size: 75%;
+  }
   #animation {
     transform: scale(1.1,1.1);
   }
   .buttonX{
-    background-color: green;
+    top: 18px;
+    left: -35px;
+    transform: scale(0.8,0.8);
+  }
+  .buttonY{
+    top: 12px;
+    right: -22px;
+    height: 40px;
+    width: 40px;
   }
   .hoogte{
     height: 331px;
     min-height: 100px;
     max-height: 331px;
   }
-  div.blogtitletext {
-    font-size: 16px;
-    font-weight:400;
-    line-height: 32px;
-    text-align: center;
+  .blogtitletext {
+    font-size: 28px;
+    line-height: 56px;
   }
-    div.blogbodytext {
+  .blogbodytext {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .responsetitletext {
+    font-size: 24px;
+    line-height: 36px;
+  }
+  .responsebodytext {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  textarea.responsebodytext {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .responsefootertext {
     font-size: 10px;
-    font-weight: 400;
-    line-height: 16px;
-    text-align: left;
+    line-height: 24px;
+    color: grey;
+    /* padding-right: 11px; */
+  }
+  .thirdPiglet-image {
+    background-size: 50%;
+    margin-left: 10px;
   }
 }
-@media screen and (min-width: 401px) and (max-width: 700px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .fxw700 {
+    font-size: 15px;
+  }
+  .fxxw700 {
+    font-size: 12px;
+  }
+  .fxw400 {
+    font-size: 9px;
+  }
+  .titletext {
+    font-size: 46px;
+    line-height: 64px;
+  }
+  .bodytext {
+    font-size: 20px;
+    line-height: 32px;
+  }
+  .thirdPiglet-image {
+    background-size: 75%;
+  }
   #animation {
     transform: scale(0.7,0.7);
   }
   .buttonX{
-    background-color: lightblue;
+    top: 8px;
+    left: 56px;
+    transform: scale(0.6,0.6);
+  }
+  .buttonY{
+    top: 9px;
+    right: 85px;
+    height: 30px;
+    width: 30px;
   }
   .hoogte{
     height: 210px;
     min-height: 100px;
     max-height: 210px;
   }
-  div.blogtitletext {
-    font-size: 16px;
-    font-weight:400;
-    line-height: 32px;
-    text-align: center;
+  .blogtitletext {
+    font-size: 24px;
+    line-height: 48px;
   }
-    div.blogbodytext {
+  .blogbodytext {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .responsetitletext {
+    font-size: 24px;
+    line-height: 36px;
+  }
+  .responsebodytext {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  textarea.responsebodytext {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .responsefootertext {
     font-size: 10px;
-    font-weight: 400;
-    line-height: 16px;
-    text-align: left;
+    line-height: 24px;
+    color: grey;
+    /* padding-right: 11px; */
+  }
+  .thirdPiglet-image {
+    background-size: 50%;
+    margin-left: 10px;
   }
 }
-@media screen and (max-width: 400px) {
-  .kleurtje{
-    background-color:green;
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  /* .kleurtje{
+    background-color:red;
+  } */
+  .fxw700 {
+    font-size: 13px;
+    /* PAS OP: */
+    position: absolute;
+    padding-top: 10px;
+  }
+  .fxxw700 {
+    font-size: 11px;
+  }
+  .fxw400 {
+    padding-top: 30px;
+    /* PAS OP: */
+    position: absolute;
+    font-size: 11px;
+  }
+  .titletext {
+    font-size: 40px;
+    line-height: 32px;
+  }
+  .bodytext {
+    font-size: 17px;
+    line-height: 16px;
+  }
+  .thirdPiglet-image {
+    background-size: 75%;
   }
   #animation {
-    transform: scale(0.3,0.3);
+    transform: scale(0.37,0.37);
     width: 400px;
   }
   .buttonX{
-    background-color: yellow;
+    top: 2px;
+    left: 93px;
+    transform: scale(0.5,0.5);
+  }
+  .buttonY{
+    top: 5px;
+    right: 130px;
+    height: 20px;
+    width: 20px;
   }
   .hoogte{
     height: 111px;
     min-height: 50px;
     max-height: 111px;
   }
-  div.blogtitletext {
+  .blogtitletext {
     font-size: 16px;
-    font-weight:400;
     line-height: 32px;
-    text-align: center;
   }
-    div.blogbodytext {
+  .blogbodytext {
     font-size: 10px;
     font-weight: 400;
     line-height: 16px;
     text-align: left;
+  }
+  .responsetitletext {
+    font-size: 14px;
+    line-height: 32px;
+  }
+  .responsebodytext {
+    font-size: 9px;
+    line-height: 16px;
+  }
+  textarea.responsebodytext {
+    font-size: 9px;
+    line-height: 16px;
+  }
+  .responsefootertext {
+    font-size: 8px;
+    line-height: 24px;
+    color: grey;
+  }
+  .thirdPiglet-image {
+    background-size: 50%;
+    margin-left: 10px;
+  }
+}
+@media screen and (max-width: 575px) {
+  /* .kleurtje{
+    background-color:lightgreen;
+  } */
+  .fxw700 {
+    font-size: 13px;
+    /* PAS OP: */
+    position: absolute;
+    padding-top: 10px;
+  }
+  .fxxw700 {
+    font-size: 11px;
+  }
+  .fxw400 {
+    padding-top: 30px;
+    /* PAS OP: */
+    position: absolute;
+    font-size: 11px;
+  }
+  .titletext {
+    font-size: 40px;
+    line-height: 32px;
+  }
+  .bodytext {
+    font-size: 17px;
+    line-height: 16px;
+  }
+  .thirdPiglet-image {
+    background-size: 75%;
+  }
+  #animation {
+    transform: scale(0.37,0.37);
+    width: 400px;
+  }
+  .buttonX{
+    top: 2px;
+    left: 93px;
+    transform: scale(0.5,0.5);
+  }
+  .buttonY{
+    top: 5px;
+    right: 130px;
+    height: 20px;
+    width: 20px;
+  }
+  .hoogte{
+    height: 111px;
+    min-height: 50px;
+    max-height: 111px;
+  }
+  .blogtitletext {
+    font-size: 16px;
+    line-height: 32px;
+  }
+  .blogbodytext {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+  }
+  .responsetitletext {
+    font-size: 14px;
+    line-height: 32px;
+  }
+  .responsebodytext {
+    font-size: 9px;
+    line-height: 16px;
+  }
+  textarea.responsebodytext {
+    font-size: 9px;
+    line-height: 16px;
+  }
+  .responsefootertext {
+    font-size: 8px;
+    line-height: 24px;
+    color: grey;
+  }
+  .thirdPiglet-image {
+    background-size: 30%;
+    /* margin-left: 1px; */
+    padding: 0px;
+  }
+  .alsKlein7 {
+    padding: 0px;
+    margin: 0px;
+  }
+  .alsKlein4 {
+    padding: 0px;
+    margin-top: 20px;
+  }
+  .kweettandersookniet {
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 307px) {
+  .thirdPiglet-image {
+    background-color:rgb(255, 239, 242);
+  }
+  .alsKlein7 {
+    font-size: 10px;
+    padding: 0px;
+    margin: 0px;
+  }
+  .alsKlein4 {
+    font-size: 9px;
+    padding: 0px;
+    margin-top: 20px;
   }
 }
 .f20w400 {

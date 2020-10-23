@@ -53,13 +53,6 @@ export default {
     });
   },
   methods: {
-    isMobile() {
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        return true
-      } else {
-        return false
-      }
-    },
     muurVallen: function() {
     // document.getElementById('containerId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/snowTransp02.gif'), url('https://vuestoragestatictof.blob.core.windows.net/pics/SneeuwLandschap02.jpg')";
     document.getElementById('containerId').style.backgroundImage = "url('https://vuestoragestatictof.blob.core.windows.net/pics/snowTransp02.gif'), url('https://vuestoragestatictof.blob.core.windows.net/pics/SneeuwLandschap02.jpg')";
@@ -92,7 +85,6 @@ export default {
       }
     },
     gooierAnimatie: async function() {
-      console.log('Begin gooierAnimatie');
       return new Promise((resolve, reject) => {
         let i = 9
         var frameHeight = 365;

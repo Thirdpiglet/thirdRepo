@@ -45,13 +45,6 @@ export default {
     await this.gifsLaden();
   },
   methods: {
-    isMobile() {
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        return true
-      } else {
-        return false
-      }
-    },
     gifsLaden: async function() {
       return new Promise((resolve, reject) => {
       // setTimeout(function(){
