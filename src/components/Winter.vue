@@ -1,6 +1,11 @@
 <template>
 <div>
   <div id="containerId" class="container-full-bg contBackgrnd hoogte padding0 d-flex justify-content-center relatief">
+    <div class="absoluut">
+      <a href="lente" class="button black buttonX">
+        Naar Lente thema
+      </a>
+    </div>
     <!-- <button id="buttonX" class="buttonX"/> -->
     <div :key="reRenderKey" id="muurVallen"></div>
   </div>
@@ -105,7 +110,7 @@ export default {
     },
     maakAfdruk: async function () {
       let l_containerId = document.getElementById('containerId');
-      let afdrukTop = this.vizierIDOffsetTop -138;
+      let afdrukTop = this.vizierIDOffsetTop -114;
 			let afdrukLeft = this.vizierIDOffsetLeft +13;
 			let balAdruk = document.createElement("img");
       // balAdruk.src = "../assets/sneeuwbal02.png";
@@ -202,14 +207,14 @@ export default {
   min-height: 478px;
   max-height: 100px;
 }
-.buttonX{
+/* .buttonX{
   top: 1000px;
   left: 500px;
   height: 40px;
   width: 80px;
   background-color: red;
   z-index: +1;
-}
+} */
 .padding0{
   padding: 0px;
   border-color: red;
